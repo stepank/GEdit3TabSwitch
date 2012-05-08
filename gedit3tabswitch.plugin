@@ -3,6 +3,6 @@ Loader=python
 Module=gedit3tabswitch
 IAge=3
 Name=GEdit3TabSwitch
-Description=Allows to ctrl+tab-switch between documents
+Description=Switch between tabs using Ctrl + Tab / Ctrl + PgDn and Ctrl + Shift + Tab / Ctrl + PgUp
 Authors=Flynsarmy
 Copyright=Copyright © 2011 Flynsarmy, Elia Sarti
