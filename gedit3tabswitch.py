@@ -27,7 +27,8 @@ class GEdit3TabSwitch(GObject.Object, Gedit.WindowActivatable):
     def on_key_press_event(self, window, event):
         key = Gdk.keyval_name(event.keyval)
 
-        if event.state & Gdk.ModifierType.CONTROL_MASK and key in ('Tab', 'ISO_Left_Tab'):
+        if event.state & Gdk.ModifierType.CONTROL_MASK and \
+                key in ('Tab', 'ISO_Left_Tab', 'Page_Down', 'Page_Up'):
             atab = window.get_active_tab()
             tabs = atab.get_parent().get_children()
             tlen = len(tabs)
@@ -39,7 +40,7 @@ class GEdit3TabSwitch(GObject.Object, Gedit.WindowActivatable):
                 if tab == atab:
                     break
 
-            if key == 'ISO_Left_Tab':
+            if key in ('ISO_Left_Tab', 'Page_Up'):
                 i -= 2
 
             if i < 0:
