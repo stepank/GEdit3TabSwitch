@@ -14,10 +14,10 @@ class GEdit3TabSwitch(GObject.Object, Gedit.WindowActivatable):
         handlers = []
         handler_id = self.window.connect('key-press-event', self.on_key_press_event)
         handlers.append(handler_id)
-        self.window.set_data(self.__gtype_name__+"Handlers", handlers)
+        setattr(self.window, self.__gtype_name__ + "Handlers", handlers)
 
     def do_deactivate(self):
-        handlers = self.window.get_data(self.__gtype_name__+"Handlers")
+        handlers = getattr(self.window, self.__gtype_name__ + "Handlers", [])
         for handler_id in handlers:
             self.window.disconnect(handler_id)
 
